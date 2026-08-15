@@ -1,0 +1,401 @@
+/* ==========================================================================
+   Oracle Legal Consultancy — Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --navy-deep: #0B1F33;
+  --navy-dark: #071521;
+  --gold: #C6A15B;
+  --gold-soft: #d9bd85;
+  --off-white: #F7F6F2;
+  --white: #FFFFFF;
+  --text-dark: #263238;
+  --text-muted: #6B7280;
+
+  /* Derived / utility tones */
+  --navy-deep-rgb: 11, 31, 51;
+  --gold-rgb: 198, 161, 91;
+  --hairline: rgba(11, 31, 51, 0.12);
+  --hairline-on-dark: rgba(247, 246, 242, 0.14);
+  --shadow-soft: 0 30px 60px -30px rgba(7, 21, 33, 0.35);
+  --shadow-card: 0 20px 40px -28px rgba(7, 21, 33, 0.28);
+
+  /* Type */
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --container-w: 1240px;
+  --section-pad: clamp(72px, 9vw, 140px);
+  --radius-sm: 3px;
+  --radius-md: 6px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--off-white);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--navy-deep);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 48px);
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--tight {
+  padding-block: clamp(56px, 6vw, 96px);
+}
+
+.section--navy {
+  background: var(--navy-deep);
+  color: var(--off-white);
+}
+
+.section--navy h1,
+.section--navy h2,
+.section--navy h3,
+.section--navy h4 {
+  color: var(--off-white);
+}
+
+/* ---- Signature motif: clause mark ----
+   A small rotated gold square, evoking a wax-seal / clause marker,
+   used consistently to introduce eyebrow labels throughout the site. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.eyebrow--center {
+  justify-content: center;
+}
+
+.section--navy .eyebrow {
+  color: var(--gold-soft);
+}
+
+/* ---- Signature motif: document corner frame ----
+   Fine gold corner brackets around key imagery, echoing a
+   stamped legal document / redaction mark. */
+.doc-frame {
+  position: relative;
+}
+
+.doc-frame::before,
+.doc-frame::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--gold);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.doc-frame::before {
+  top: -14px;
+  left: -14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.doc-frame::after {
+  bottom: -14px;
+  right: -14px;
+  border-left: none;
+  border-top: none;
+}
+
+.divider {
+  width: 56px;
+  height: 1.5px;
+  background: var(--gold);
+  border: none;
+}
+
+.divider--center {
+  margin-inline: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all 0.35s var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+.btn-primary:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -12px rgba(198, 161, 91, 0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: rgba(11, 31, 51, 0.25);
+  color: var(--navy-deep);
+}
+
+.btn-outline:hover {
+  border-color: var(--navy-deep);
+  background: var(--navy-deep);
+  color: var(--off-white);
+  transform: translateY(-2px);
+}
+
+.section--navy .btn-outline {
+  border-color: rgba(247, 246, 242, 0.3);
+  color: var(--off-white);
+}
+
+.section--navy .btn-outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy-dark);
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--navy-deep);
+  font-weight: 600;
+  font-size: 14.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-text svg {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.btn-text:hover svg {
+  transform: translateX(5px);
+}
+
+.section--navy .btn-text {
+  color: var(--gold-soft);
+}
+
+/* Section heading component */
+.section-heading {
+  max-width: 680px;
+}
+
+.section-heading.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+}
+
+.section-heading p {
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.section--navy .section-heading p {
+  color: rgba(247, 246, 242, 0.72);
+}
+
+/* ---------- Fixed site header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+:root {
+  --header-h: 163px;
+}
+
+@media (max-width: 980px) {
+  :root {
+    --header-h: 149px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --header-h: 113px;
+  }
+}
+
+/* Utility */
+.text-muted { color: var(--text-muted); }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Shared form elements (Contact / Consultation) ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.field label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  letter-spacing: 0.01em;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 15px;
+  color: var(--text-dark);
+  background: var(--white);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.18);
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #c0392b;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field__error {
+  font-size: 12.5px;
+  color: #c0392b;
+}

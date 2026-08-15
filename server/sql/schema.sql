@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS oracle_legal CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE oracle_legal;
+
+CREATE TABLE IF NOT EXISTS vision_messages (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  heading VARCHAR(120) NOT NULL,
+  body TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX idx_vision_created_at (created_at)
+);
+
+CREATE TABLE IF NOT EXISTS admin_users (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(80) NOT NULL DEFAULT 'admin',
+  password_hash CHAR(128) NOT NULL,
+  password_salt CHAR(32) NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_admin_username (username)
+);

@@ -1,0 +1,21 @@
+.notfound {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-h) + 40px);
+}
+
+.notfound__inner {
+  text-align: center;
+}
+
+.notfound h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 16px;
+}
+
+.notfound p {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 30px;
+}

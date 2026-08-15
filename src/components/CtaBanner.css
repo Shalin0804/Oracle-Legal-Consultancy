@@ -1,0 +1,44 @@
+.cta {
+  background: var(--navy-deep);
+  padding-block: 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(198, 161, 91, 0.15);
+  top: -220px;
+  right: -140px;
+}
+
+.cta__inner {
+  text-align: center;
+  position: relative;
+}
+
+.cta h2 {
+  color: var(--off-white);
+  font-size: clamp(30px, 4vw, 44px);
+  margin-bottom: 10px;
+}
+
+.cta__subheading {
+  color: var(--gold-soft);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.cta__text {
+  color: rgba(247, 246, 242, 0.72);
+  max-width: 520px;
+  margin: 0 auto 34px;
+  font-size: 16px;
+  line-height: 1.75;
+}

@@ -1,0 +1,78 @@
+.topbar {
+  background: var(--navy-dark);
+  color: rgba(247, 246, 242, 0.78);
+  font-size: 12.8px;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.18);
+  max-height: 41px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.4s var(--ease-out), opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.topbar--collapsed {
+  max-height: 0;
+  opacity: 0;
+  border-color: transparent;
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+}
+
+.topbar__group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.topbar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.25s ease;
+}
+
+a.topbar__item:hover {
+  color: var(--gold-soft);
+}
+
+.topbar__item svg {
+  color: var(--gold);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.topbar__confidential {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  letter-spacing: 0.02em;
+  color: var(--gold-soft);
+  font-weight: 500;
+}
+
+.topbar__confidential svg {
+  font-size: 12px;
+}
+
+@media (max-width: 860px) {
+  .topbar__item--hours {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar__inner {
+    justify-content: center;
+  }
+  .topbar__confidential {
+    display: none;
+  }
+  .topbar__group {
+    gap: 18px;
+  }
+}

@@ -1,0 +1,7 @@
+.faq-page__container {
+  max-width: 780px;
+}
+
+.faq-page__list {
+  border-top: 1px solid var(--hairline);
+}
